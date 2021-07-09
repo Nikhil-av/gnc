@@ -1,0 +1,36 @@
+body {
+  font-family: 'Helvetica';
+  background-color: orange;
+}
+
+
+.li{
+    margin:50px
+}
+
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li  {
+  background-color: #003300;
+  color: #FFFFFF;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+  border-bottom: 5px #000000 solid;
+}
+
+
+.list.list-view-filter {
+  flex-direction: column;
+}
+
+.list.list-view-filter li {
+  padding: 10px;
+}
+

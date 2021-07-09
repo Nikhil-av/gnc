@@ -1,0 +1,25 @@
+<h2>{{other}}</h2>
+        <div id="container">
+
+            <div  *ngFor="let s of messages">  
+                <div class="tanishq" *ngIf="s.author==user">
+                    <p>{{s.test}}</p>
+                </div>
+                <div class="aman" *ngIf="s.author!=user" >
+                    <p>{{s.test}}</p>
+
+                </div>
+
+            </div>
+        </div>
+            
+
+
+
+            
+
+ 
+        <form class="msger-inputarea">
+            <input type="text" class="msger-input" placeholder="Enter your message..." [(ngModel)]="text">
+            <button type="submit" class="msger-send-btn" (click)="send()" >Send</button>
+          </form>

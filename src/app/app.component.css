@@ -2,12 +2,12 @@
 
 
 .hello{
-  background-color: #003300
+  background-color:black;
 }
 .nav-item{
     color: white
 }
 .active{
-    background-color:red;
+    background-color:#e20e92;
 
 }

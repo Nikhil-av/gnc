@@ -1,5 +1,5 @@
 <div class="hello">
-<nav class="navbar navbar-expand-sm navbar-dark ">
+<nav class="navbar navbar-expand-sm navbar-dark">
     <div class="navbar-brand ms-5">
         <i class="fas fa-comment"></i>
         Welcome
@@ -20,7 +20,7 @@
         <a class="nav-link text-white " routerLink="login" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Login</a>
       </li>
       <li class="nav-item" *ngIf="us.userLoginStatus">
-        <button class="nav-link text-dark "   data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" (click)=userLogout() >Logout</button>
+        <a class="nav-link text-white " routerLink="login" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" (click)=userLogout()>Logout</a>
       </li>
     </ul>
   </div>

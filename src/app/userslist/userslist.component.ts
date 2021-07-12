@@ -11,6 +11,7 @@ export class UserslistComponent implements OnInit {
 
   constructor(private us:UserService,private rr:Router) { }
   chattedusers:any =[];
+  userrr:any=""
   status:boolean = false;
   setstatus1(){
     this.status=false;
@@ -20,10 +21,16 @@ export class UserslistComponent implements OnInit {
   }
   userslist:any =[];
   ngOnInit(): void {
+    this.userrr=localStorage.getItem("username")
     this.us.fun3().subscribe(
       res=>{
-        this.userslist=res.message
-      },
+        let usersl=res.message
+        for(let i=0;i<usersl.length;i++){
+          if (usersl[i].username!=this.userrr){
+            this.userslist.push(usersl[i])
+          }
+        }
+},
       err=>{
         console.log(err.message)
       }

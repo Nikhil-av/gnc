@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { UserslistComponent } from './userslist/userslist.component';
 import { ChatscreenComponent } from './chatscreen/chatscreen.component';
 import { ChattedusersComponent } from './chattedusers/chattedusers.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ChattedusersComponent } from './chattedusers/chattedusers.component';
     UserslistComponent,
     ChatscreenComponent,
     ChattedusersComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

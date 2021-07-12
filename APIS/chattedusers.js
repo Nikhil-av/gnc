@@ -8,6 +8,8 @@ module.exports =chattedApi;
 chattedApi.get('/getusers/:username',expressErrorHandler(async (req,res,next)=>{
        //getting username from url parameter
        let un=req.params.username;
+       let userCollectionObj = req.app.get("userCollectionObj")
+
        //database object
        let chattedObj =req.app.get('chatObj')
 
@@ -18,7 +20,12 @@ chattedApi.get('/getusers/:username',expressErrorHandler(async (req,res,next)=>{
        }
        else{
            let chatArray=chat.chatted;
-           console.log(chatArray)
-           res.send({message: chatArray})
+           l=chatArray.length
+           users=[]
+           for(let i=0;i<l;i++){
+            let user=await userCollectionObj.findOne({username:chatArray[i]})
+            users.push(user)
+           }
+           res.send({message: users})
        }
 }))

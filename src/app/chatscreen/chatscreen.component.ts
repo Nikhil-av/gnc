@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { UserService } from '../user.service';
 })
 export class ChatscreenComponent implements OnInit {
 
-  constructor(private us:UserService) { }
+  constructor(private us:UserService,private rr:Router) { }
   text: string="";
   user:any=localStorage.getItem('username')
   other:any=localStorage.getItem('curruser')
@@ -46,6 +47,9 @@ export class ChatscreenComponent implements OnInit {
       }
     )
 
+  }
+  fun(){
+    this.rr.navigateByUrl('/userlist/'+this.user)
   }
 
 }

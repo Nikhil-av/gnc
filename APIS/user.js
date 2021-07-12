@@ -6,13 +6,46 @@ const jwt = require('jsonwebtoken')
 const bcryptjs = require('bcryptjs')
 module.exports =userApi;
 
+const cloudinary = require("cloudinary").v2;
+const multer = require("multer")
+const { CloudinaryStorage } = require("multer-storage-cloudinary")
+cloudinary.config({
 
-userApi.post("/create", expressErrorHandler(async (req, res, next) => {
+    cloud_name: "dmwmgtsuj",
+  
+    api_key: "447987196625791",
+  
+    api_secret: "Jp2YG_UW7f7qsau6qO8ul33eEnU",
+  
+  });
+  
+  
+  
+  const storage = new CloudinaryStorage({
+  
+    cloudinary: cloudinary,
+  
+    params:async (req, file) => {
+  
+        return {
+  
+        folder: 'default',      
+  
+        public_id: file.fieldname + '-' + Date.now()
+
+      
+  
+    }},
+  
+  });
+  var multerObj = multer( { storage: storage });
+userApi.post("/create",multerObj.single('photo'), expressErrorHandler(async (req, res, next) => {
 
     let userCollectionObj = req.app.get("userCollectionObj")
 
     //get user obj
-    let newUser = req.body
+    let newUser = JSON.parse(req.body.userObj)
+    console.log(newUser)
 
     //search for existing user
     let user = await userCollectionObj.findOne({ username: newUser.username })
@@ -27,6 +60,7 @@ userApi.post("/create", expressErrorHandler(async (req, res, next) => {
         newUser.password = hashedPassword;
         //add image url
         //insert
+        newUser.profileImage=req.file.path;
         await userCollectionObj.insertOne(newUser)
         res.send({ message: "User created" })
     }

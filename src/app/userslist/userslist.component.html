@@ -1,15 +1,34 @@
+<div class="mainbg">
+  <div class="container" >
+
 <div class="mt-2 d-flex justify-content-center">
-  <div class="btn btn-warning" (click)=" setstatus1()">friends</div>
-  <div class="btn btn-warning ms-4" (click)="setstatus2()">All users</div>
+  <div class="btn btn-warning" (click)=" setstatus1()">RECENT CHATS</div>
+  <div class="btn btn-warning ms-4" (click)="setstatus2()">All USERS</div>
 </div>
- <div *ngIf="status">
-  <ol class="list list-view-filter m-5" *ngFor="let user of userslist">
-    <li (click)="fun(user.username)">{{user.username}}</li>
-  </ol>
+<div *ngIf="status">
+  <div class="row  m-1">
+    <div class="col m-3 row-cols-1 row-cols-md-3 " *ngFor="let user of userslist">
+      <div class="card 1" >
+        <div class="card_image"> <img src={{user.profileImage}} width="100%"/> </div>
+        <div class="card_title title-white">
+        </div>
+      </div>
+      <button class="btn btn-info d-block mx-auto w-75" (click)="fun(user.username)">Message...{{user.username}}</button>
+    </div>
+  </div>
 </div>
  
 <div *ngIf="!status">
-  <ol class="list list-view-filter m-5" *ngFor="let k of chattedusers">
-    <li >{{k}}</li>
-  </ol>
+  <div class="row m-1">
+    <div class="col m-3 row-cols-1 row-cols-md-3 " *ngFor="let user of chattedusers">
+      <div class="card 1">
+        <div class="card_image"> <img src={{user.profileImage}} width="100%"/> </div>
+        <div class="card_title title-white">
+        </div>
+      </div>
+      <button class="btn btn-info d-block mx-auto" (click)="fun(user.username)">Message...{{user.username}}</button>
+    </div>
+  </div>
+</div>
+</div>
 </div>

@@ -2,7 +2,8 @@ const exp = require("express")
 const app = exp();
 const userApi = require('./APIS/user')
 const messApi=require('./APIS/messages')
-const port = 3000;
+chatApi=require('./APIS/chattedusers')
+const port = 3500;
 const path = require("path")
 const mc = require("mongodb").MongoClient;
 app.listen(port, () => console.log(`server on ${port}...`))
@@ -18,11 +19,13 @@ mc.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, clien
 
         let databaseObj = client.db("chat")
         let userCollectionObj = databaseObj.collection("users")
+        let chatObj=databaseObj.collection("chattedusers")
         let messObj = databaseObj.collection("messages")
         app.set("messObj",messObj);
 
         //create usercollection object
         app.set("userCollectionObj", userCollectionObj)
+        app.set("chatObj",chatObj)
 
 
         console.log("connected to database")
@@ -31,6 +34,7 @@ mc.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, clien
 })
 app.use("/user", userApi)
 app.use("/message",messApi)
+app.use("/chat",chatApi)
 app.use((req, res, next) => {
 
     res.send({ message: `path ${req.url} is invalid` })

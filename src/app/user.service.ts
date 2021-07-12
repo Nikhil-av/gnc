@@ -38,6 +38,9 @@ export class UserService {
   postmessage(userObj:any):Observable<any>{
     return this.hc.post("/message/create",userObj)
   }
+  getfriends(username:any):Observable<any>{
+    return this.hc.get('/chat/getusers/'+username)
+  }
   getmessage():Observable<any>{
     let username=localStorage.getItem("username")
     let user=localStorage.getItem("curruser")

@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { UserslistComponent } from './userslist/userslist.component';
 import { ChatscreenComponent } from './chatscreen/chatscreen.component';
+import { ChattedusersComponent } from './chattedusers/chattedusers.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ChatscreenComponent } from './chatscreen/chatscreen.component';
     LoginComponent,
     UserslistComponent,
     ChatscreenComponent,
+    ChattedusersComponent,
   ],
   imports: [
     BrowserModule,

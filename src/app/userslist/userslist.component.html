@@ -1,5 +1,15 @@
-
-  
+<div class="mt-2 d-flex justify-content-center">
+  <div class="btn btn-warning" (click)=" setstatus1()">friends</div>
+  <div class="btn btn-warning ms-4" (click)="setstatus2()">All users</div>
+</div>
+ <div *ngIf="status">
   <ol class="list list-view-filter m-5" *ngFor="let user of userslist">
     <li (click)="fun(user.username)">{{user.username}}</li>
   </ol>
+</div>
+ 
+<div *ngIf="!status">
+  <ol class="list list-view-filter m-5" *ngFor="let k of chattedusers">
+    <li >{{k}}</li>
+  </ol>
+</div>

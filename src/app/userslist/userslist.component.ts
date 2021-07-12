@@ -10,9 +10,10 @@ import { UserService } from '../user.service';
 export class UserslistComponent implements OnInit {
 
   constructor(private us:UserService,private rr:Router) { }
+  searchTerm: string="";
   chattedusers:any =[];
   userrr:any=""
-  status:boolean = false;
+  status:boolean = true;
   setstatus1(){
     this.status=false;
   }
@@ -43,7 +44,7 @@ export class UserslistComponent implements OnInit {
         }
         else{
           this.chattedusers=res.message
-          console.log(res)
+          console.log(this.chattedusers)
         }
       }
     )

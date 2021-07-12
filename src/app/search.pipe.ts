@@ -12,7 +12,7 @@ export class SearchPipe implements PipeTransform {
       return mobiles;
     }
     else{
-      return mobiles.filter(mobileObj=>mobileObj.ptitle.toLowerCase().indexOf(searchTerm.toLowerCase())!==-1 )
+      return mobiles.filter(mobileObj=>mobileObj.username.toLowerCase().indexOf(searchTerm.toLowerCase())!==-1 )
     }
   }
 

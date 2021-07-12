@@ -11,6 +11,7 @@ import { UserslistComponent } from './userslist/userslist.component';
 import { ChatscreenComponent } from './chatscreen/chatscreen.component';
 import { ChattedusersComponent } from './chattedusers/chattedusers.component';
 import { SearchPipe } from './search.pipe';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SearchPipe } from './search.pipe';
     ChatscreenComponent,
     ChattedusersComponent,
     SearchPipe,
+    UserprofileComponent,
   ],
   imports: [
     BrowserModule,

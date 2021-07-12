@@ -19,5 +19,6 @@ export class HomeComponent implements OnInit {
     this.rr.navigateByUrl('/register')
   }
   
+  
 
 }

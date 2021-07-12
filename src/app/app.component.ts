@@ -10,6 +10,7 @@ import { UserService } from './user.service';
 export class AppComponent {
   title = 'chat';
   s:any="";
+  userrrr:any;
 
   constructor(public us:UserService,private rr:Router){}
   ngOnInit() {
@@ -21,5 +22,13 @@ export class AppComponent {
     localStorage.clear();
     this.us.userLoginStatus=false;
     this.rr.navigateByUrl('/')
+  }
+  fun3(){
+    this.userrrr=localStorage.getItem("username")
+    this.rr.navigateByUrl('/userlist/'+this.userrrr)
+  }
+  fun4(){
+    console.log("hello")
+    this.rr.navigateByUrl('/userprofile')
   }
 }

@@ -14,11 +14,16 @@
   <div class="row">
     <div class="col m-3 row-cols-1 row-cols-md-5 " *ngFor="let user of userslist | search :searchTerm">
       <div class="card 1">
-        <div class="card_image"> <img src={{user.profileImage}} width="100%" alt="No profile pic.."/> </div>
-        <div class="card_title title-white">
+        <div class="card_image"> <img src={{user.profileImage}} width="100%" alt="No profile pic.." class="p-1"/> </div>
+        <div class="card_title title-white"></div>
+        <!-- card overlay effect -->
+        <div class="card__overlay">
+          <div class="overlay__text mt-4" style="text-align: center;">
+              <h2 style="color: white;font-size:4em;font-weight:bolder;">{{user.username}} </h2>
+              <button style="color: black;background-color: #fbb034;background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);font-family:'PT Sans', sans-serif;font-weight: bolder;" class="btn d-block mx-auto w-50"(click)="fun(user.username)">Message</button>
+          </div>
         </div>
-      </div>
-      <button style="color: black;background-color:#fff500;font-family: 'Cinzel Decorative', cursive;" class="btn d-block mx-auto w-75"(click)="fun(user.username)">Message...{{user.username}}</button>
+    </div>
   </div>
 </div>
 </div>
@@ -26,11 +31,15 @@
   <div class="row">
     <div class="col m-3 row-cols-1 row-cols-md-5 " *ngFor="let user of chattedusers | search :searchTerm">
       <div class="card 1">
-        <div class="card_image"> <img src={{user.profileImage}} width="100%" alt="No profile pic.."/> </div>
-        <div class="card_title title-white">
+        <div class="card_image"> <img src={{user.profileImage}} width="100%" alt="No profile pic..." class="p-1"/> </div>
+        <div class="card_title title-white"></div>
+        <!-- card overlay effect -->
+        <div class="card__overlay">
+          <div class="overlay__text mt-4" style="text-align: center;">
+              <h2 style="color: white;font-size:4em;font-weight:bolder;">{{user.username}} </h2>
+              <button style="color: black;background-color: #fbb034;background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);font-family:'PT Sans', sans-serif;font-weight: bolder;" class="btn d-block mx-auto w-50"(click)="fun(user.username)">Message</button>
+          </div>
         </div>
       </div>
-      <button style="color: black;font-weight: bold;font-size: large;background-color:#fff500;font-family: 'Zen Tokyo Zoo', cursive;" class="btn d-block mx-auto w-75"(click)="fun(user.username)">Message...{{user.username}}</button>
-  </div>
-</div>
+     </div>
 </div>

@@ -41,6 +41,9 @@ export class UserService {
   getfriends(username:any):Observable<any>{
     return this.hc.get('/chat/getusers/'+username)
   }
+  updateprofile(userObj:any):Observable<any>{
+    return this.hc.post('/user/change',userObj)
+  }
   getmessage():Observable<any>{
     let username=localStorage.getItem("username")
     let user=localStorage.getItem("curruser")

@@ -13,9 +13,26 @@ export class ChatscreenComponent implements OnInit {
   text: string="";
   user:any=localStorage.getItem('username')
   other:any=localStorage.getItem('curruser')
-
-
   messages:any=[]
+
+  fun2(){
+    this.us.getmessage().subscribe(
+      res=>{
+        this.messages=res.message;
+      },
+
+    ),
+    setTimeout(()=>this.fun2(),5000)
+  }
+  fun22(){
+    this.us.getmessage().subscribe(
+      res=>{
+        this.messages=res.message;
+      },
+    ),
+    setTimeout(()=>this.fun2(),5000)
+  }
+
   ngOnInit(): void {
     let use1=localStorage.getItem('username')
     let use2=localStorage.getItem('curruser')
@@ -26,6 +43,7 @@ export class ChatscreenComponent implements OnInit {
       },
 
     )
+    this.fun2()
   }
   send(){
     let use1=localStorage.getItem('username')
@@ -41,6 +59,7 @@ export class ChatscreenComponent implements OnInit {
             this.messages=mess;
           }
         )
+        this.text="";
       },
       err=>{
         alert(err.message)
@@ -53,3 +72,7 @@ export class ChatscreenComponent implements OnInit {
   }
 
 }
+
+
+
+

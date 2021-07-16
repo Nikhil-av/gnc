@@ -106,13 +106,22 @@ userApi.post('/login', expressErrorHandler(async (req, res) => {
 userApi.post('/change',multerObj.single('photo'), expressErrorHandler(async (req, res)=>{
     let userCollectionObj = req.app.get("userCollectionObj")
     let user = JSON.parse(req.body.userObj)
-    user.profileImage=req.file.path;
     let userss = await userCollectionObj.findOne({ username: user.username })
-    console.log(user,userss)
+    if (req.file!=undefined){
+        user.profileImage=req.file.path;
+        }
+        else {
+            user.profileImage="";
+        }
+    if (user.email==""){
+        user.email=userss.email
+    }
+    if (user.profileImage==""){
+        user.profileImage=userss.profileImage
+    }
     user.password = userss.password
-    console.log(user)
     await userCollectionObj.updateOne({username:user.username},{$set:{...user}})
-    Puserss = await userCollectionObj.findOne({ username: user.username })
+    userss = await userCollectionObj.findOne({ username: user.username })
 
     res.send({message:userss})
 

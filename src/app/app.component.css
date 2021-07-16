@@ -8,6 +8,6 @@
     color: white
 }
 .active{
-    background-color:#e20e92;
-
+  background-color: white;
+  color:black !important;
 }

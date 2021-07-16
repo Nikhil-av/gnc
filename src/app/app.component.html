@@ -19,14 +19,15 @@
       <li class="nav-item" *ngIf="!us.userLoginStatus">
         <a class="nav-link text-white " routerLink="login" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Login</a>
       </li>
-      <li class="nav-item" *ngIf="us.userLoginStatus">
-        <a class="nav-link text-white " routerLink="login" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" (click)=userLogout()>Logout</a>
-      </li>
+
       <li class="nav-item" *ngIf="us.userLoginStatus">
         <a class="nav-link text-white " routerLink="userlist" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" (click)="fun3()">Userlist</a>
       </li>
       <li class="nav-item" *ngIf="us.userLoginStatus">
         <a class="nav-link text-white " routerLink="userprofile" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" (click)="fun4()" >Profile</a>
+      </li>
+      <li class="nav-item" *ngIf="us.userLoginStatus">
+        <a class="nav-link text-white " routerLink="login" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" (click)=userLogout()>Logout</a>
       </li>
     </ul>
   </div>

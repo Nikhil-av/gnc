@@ -40,6 +40,9 @@ export class UserprofileComponent implements OnInit {
       res=>{
         console.log("suceess")
         localStorage.setItem('userObj',JSON.stringify(res.message));
+        this.user=localStorage.getItem('userObj')
+        this.username=localStorage.getItem('username')
+        this.user=JSON.parse(this.user)
         this.status=false;
       },
       err=>{

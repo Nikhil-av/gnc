@@ -19,16 +19,14 @@
     text-align: center;
   }
   .header h1 {
-    font-family: "Raleway", sans-serif;
-    font-size: 4rem;
+    font-size: 6rem;
     font-weight: 600;
     letter-spacing: 0.2rem;
     color: white;
     padding: 45% 20px 8px;
   }
   .header p {
-    font-family: "Raleway", sans-serif;
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: 600;
     letter-spacing: 0.2rem;
     color: white;

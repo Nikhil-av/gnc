@@ -7,7 +7,7 @@ const port = process.env.PORT || 3500
 const path = require("path")
 const mc = require("mongodb").MongoClient;
 app.listen(port, () => console.log(`server on ${port}...`))
-app.use(exp.static(path.join(__dirname, './dist/CHAT/')))
+app.use(exp.static(path.join(__dirname, './dist/chat/')))
 const url="mongodb+srv://nikhil1:abdrpkljb@cluster0.g7sd3.mongodb.net/chat?retryWrites=true&w=majority";
 mc.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
 
